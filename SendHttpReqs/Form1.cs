@@ -21,40 +21,60 @@ namespace SendHttpReqs
 
         private void sendReqButton_Click(object sender, EventArgs e)
         {
-            if (urlBox.Text != null && urlBox.Text != "") 
+            if (urlBox.Text != null && urlBox.Text != "")
             {
-                CreateRequest();
+                iterations = Int32.Parse(textBox1.Text);
+                checkiterations();
             }
         }
 
+        int iterations;
+        int sentitemes = 0;
         void CreateRequest() 
         {
-            string postData = reqpayloadBox.Text;
-            byte[] byteArray = Encoding.UTF8.GetBytes(postData);
-            WebRequest request = WebRequest.Create(urlBox.Text);
-            request.UseDefaultCredentials = true;
-            request.Method = "POST";
-            request.ContentLength = byteArray.Length;
-            request.ContentType = contenttypeBox.Text;
-            Stream dataStream = request.GetRequestStream();
-            dataStream.Write(byteArray, 0, byteArray.Length);
-            dataStream.Close();
+            try
+            {
+                string postData = reqpayloadBox.Text;
+                byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+                WebRequest request = WebRequest.Create(urlBox.Text);
+                request.UseDefaultCredentials = true;
+                request.Method = "POST";
+                request.ContentLength = byteArray.Length;
+                request.ContentType = contenttypeBox.Text;
+                Stream dataStream = request.GetRequestStream();
+                dataStream.Write(byteArray, 0, byteArray.Length);
+                dataStream.Close();
 
-            WebResponse response = request.GetResponse();
-            statlab.Text += ((HttpWebResponse)response).StatusDescription;
+                WebResponse response = request.GetResponse();
+                statlab.Text = ((HttpWebResponse)response).StatusDescription;
 
-            dataStream = response.GetResponseStream();
-            StreamReader reader = new StreamReader(dataStream);
+                dataStream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(dataStream);
+                sentitemes++;
+                string responseFromServer = "Requests Sent: " + sentitemes.ToString() + "\n" + reader.ReadToEnd();
+                serverrespBox.Text = responseFromServer;
 
-            string responseFromServer = reader.ReadToEnd();
-            serverrespBox.Text = responseFromServer;
-
-            reader.Close();
-            dataStream.Close();
-            response.Close();
+                reader.Close();
+                dataStream.Close();
+                response.Close();
+                checkiterations();
+            }
+            catch (Exception ex) 
+            {
+                serverrespBox.Text = ex.Message;
+            }
         }
 
-        List<KeyValuePair<string, WebRequest>> requests;
+        void checkiterations() 
+        {
+            if (iterations > 0)
+            {
+                iterations -= 1;
+                textBox1.Text = iterations.ToString();
+                CreateRequest();
+            }
+        }
+        Dictionary<string, WebRequest> requests;
         private void savebutton_Click(object sender, EventArgs e)
         {
             try
@@ -67,16 +87,21 @@ namespace SendHttpReqs
                 request.ContentLength = byteArray.Length;
                 request.ContentType = contenttypeBox.Text;
 
-                requests.Add(new KeyValuePair<string, WebRequest>(urlBox.Text, request));
-                foreach (KeyValuePair<string, WebRequest> savedreq in requests)
+                savedreqs.Items.Add(request);
+                requests.Add(textBox2.Text, request);
+                foreach (var thing in requests) 
                 {
-                    savedreqs.Items.Add(savedreq);
+                    savedreqs.Items.Add(thing.Key);
                 }
             }
             catch (Exception ex) 
             {
                 serverrespBox.Text = ex.Message;
             }
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
         }
     }
 }
