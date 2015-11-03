@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.urlBox = new System.Windows.Forms.TextBox();
             this.reqpayloadBox = new System.Windows.Forms.RichTextBox();
             this.sendReqButton = new System.Windows.Forms.Button();
-            this.responseBox = new System.Windows.Forms.RichTextBox();
             this.serverrespBox = new System.Windows.Forms.RichTextBox();
             this.contenttypeBox = new System.Windows.Forms.TextBox();
+            this.statlab = new System.Windows.Forms.Label();
+            this.savedreqs = new System.Windows.Forms.ListBox();
+            this.savebutton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // urlBox
@@ -43,15 +44,15 @@
             this.urlBox.Name = "urlBox";
             this.urlBox.Size = new System.Drawing.Size(580, 20);
             this.urlBox.TabIndex = 0;
-            this.urlBox.Text = resources.GetString("urlBox.Text");
+            this.urlBox.Text = "Url";
             // 
             // reqpayloadBox
             // 
-            this.reqpayloadBox.Location = new System.Drawing.Point(13, 185);
+            this.reqpayloadBox.Location = new System.Drawing.Point(13, 186);
             this.reqpayloadBox.Name = "reqpayloadBox";
-            this.reqpayloadBox.Size = new System.Drawing.Size(241, 155);
+            this.reqpayloadBox.Size = new System.Drawing.Size(241, 125);
             this.reqpayloadBox.TabIndex = 1;
-            this.reqpayloadBox.Text = resources.GetString("reqpayloadBox.Text");
+            this.reqpayloadBox.Text = "Payload";
             // 
             // sendReqButton
             // 
@@ -62,14 +63,6 @@
             this.sendReqButton.Text = "Send";
             this.sendReqButton.UseVisualStyleBackColor = true;
             this.sendReqButton.Click += new System.EventHandler(this.sendReqButton_Click);
-            // 
-            // responseBox
-            // 
-            this.responseBox.Location = new System.Drawing.Point(261, 40);
-            this.responseBox.Name = "responseBox";
-            this.responseBox.Size = new System.Drawing.Size(332, 139);
-            this.responseBox.TabIndex = 4;
-            this.responseBox.Text = "Response";
             // 
             // serverrespBox
             // 
@@ -85,16 +78,45 @@
             this.contenttypeBox.Name = "contenttypeBox";
             this.contenttypeBox.Size = new System.Drawing.Size(241, 20);
             this.contenttypeBox.TabIndex = 6;
-            this.contenttypeBox.Text = "application/x-www-form-urlencoded;charset=UTF-8";
+            this.contenttypeBox.Text = "Content-Type";
+            // 
+            // statlab
+            // 
+            this.statlab.AutoSize = true;
+            this.statlab.Location = new System.Drawing.Point(260, 170);
+            this.statlab.Name = "statlab";
+            this.statlab.Size = new System.Drawing.Size(43, 13);
+            this.statlab.TabIndex = 7;
+            this.statlab.Text = "Status: ";
+            // 
+            // savedreqs
+            // 
+            this.savedreqs.FormattingEnabled = true;
+            this.savedreqs.Location = new System.Drawing.Point(412, 39);
+            this.savedreqs.Name = "savedreqs";
+            this.savedreqs.Size = new System.Drawing.Size(181, 121);
+            this.savedreqs.TabIndex = 8;
+            // 
+            // savebutton
+            // 
+            this.savebutton.Location = new System.Drawing.Point(437, 317);
+            this.savebutton.Name = "savebutton";
+            this.savebutton.Size = new System.Drawing.Size(75, 23);
+            this.savebutton.TabIndex = 9;
+            this.savebutton.Text = "Save";
+            this.savebutton.UseVisualStyleBackColor = true;
+            this.savebutton.Click += new System.EventHandler(this.savebutton_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(605, 352);
+            this.Controls.Add(this.savebutton);
+            this.Controls.Add(this.savedreqs);
+            this.Controls.Add(this.statlab);
             this.Controls.Add(this.contenttypeBox);
             this.Controls.Add(this.serverrespBox);
-            this.Controls.Add(this.responseBox);
             this.Controls.Add(this.sendReqButton);
             this.Controls.Add(this.reqpayloadBox);
             this.Controls.Add(this.urlBox);
@@ -110,9 +132,11 @@
         private System.Windows.Forms.TextBox urlBox;
         private System.Windows.Forms.RichTextBox reqpayloadBox;
         private System.Windows.Forms.Button sendReqButton;
-        private System.Windows.Forms.RichTextBox responseBox;
         private System.Windows.Forms.RichTextBox serverrespBox;
         private System.Windows.Forms.TextBox contenttypeBox;
+        private System.Windows.Forms.Label statlab;
+        private System.Windows.Forms.ListBox savedreqs;
+        private System.Windows.Forms.Button savebutton;
     }
 }
 

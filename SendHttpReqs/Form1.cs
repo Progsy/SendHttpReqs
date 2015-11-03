@@ -41,7 +41,7 @@ namespace SendHttpReqs
             dataStream.Close();
 
             WebResponse response = request.GetResponse();
-            responseBox.Text = ((HttpWebResponse)response).StatusDescription;
+            statlab.Text += ((HttpWebResponse)response).StatusDescription;
 
             dataStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(dataStream);
@@ -52,6 +52,31 @@ namespace SendHttpReqs
             reader.Close();
             dataStream.Close();
             response.Close();
+        }
+
+        List<KeyValuePair<string, WebRequest>> requests;
+        private void savebutton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string postData = reqpayloadBox.Text;
+                byte[] byteArray = Encoding.UTF8.GetBytes(postData);
+                WebRequest request = WebRequest.Create(urlBox.Text);
+                request.UseDefaultCredentials = true;
+                request.Method = "POST";
+                request.ContentLength = byteArray.Length;
+                request.ContentType = contenttypeBox.Text;
+
+                requests.Add(new KeyValuePair<string, WebRequest>(urlBox.Text, request));
+                foreach (KeyValuePair<string, WebRequest> savedreq in requests)
+                {
+                    savedreqs.Items.Add(savedreq);
+                }
+            }
+            catch (Exception ex) 
+            {
+                serverrespBox.Text = ex.Message;
+            }
         }
     }
 }

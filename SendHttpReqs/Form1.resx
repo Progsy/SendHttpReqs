@@ -117,10 +117,4 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="urlBox.Text" xml:space="preserve">
-    <value>https://mail.google.com/mail/u/0/?ui=2&amp;ik=264edf1e43&amp;rid=2752..&amp;at=AF6bupNTMzMDNmD57z8Awv3mdSUpPm8IeQ&amp;view=up&amp;act=sd&amp;jsid=v7wj84i7tf5m&amp;cmid=1&amp;permmsgid=msg-a%3Ar12053109772096889960&amp;cmeb=0&amp;cmml=25&amp;autosave=1&amp;_reqid=2159231&amp;pcd=1&amp;mb=0&amp;rt=j&amp;search=drafts</value>
-  </data>
-  <data name="reqpayloadBox.Text" xml:space="preserve">
-    <value>=&amp;=&amp;=&amp;to=Oscar%20Halldin%20%3Challdinoscar%40gmail.com%3E&amp;to=&amp;cc=&amp;bcc=&amp;subjectbox=Test&amp;composeid=1446565704764&amp;from=&amp;subject=Test&amp;draft=150ce09477c68099&amp;bwd=&amp;rm=undefined&amp;cans=&amp;ctok=&amp;ac=&amp;adc=&amp;ishtml=1&amp;nowrap=0&amp;body=%3Cdiv%20dir%3D%22ltr%22%3E%3Cbr%3E%3C%2Fdiv%3E&amp;pte=&amp;pti=&amp;bpfs=&amp;uet=&amp;pbgt=&amp;pbgas=&amp;pbgir=&amp;</value>
-  </data>
 </root>
