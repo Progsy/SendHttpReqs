@@ -1,1 +1,9 @@
 c:\users\oscar\documents\visual studio 2013\Projects\SendHttpReqs\SendHttpReqs\bin\Debug\SendHttpReqs.exe.config
+c:\users\oscar\documents\visual studio 2013\Projects\SendHttpReqs\SendHttpReqs\bin\Debug\SendHttpReqs.exe
+c:\users\oscar\documents\visual studio 2013\Projects\SendHttpReqs\SendHttpReqs\bin\Debug\SendHttpReqs.pdb
+c:\users\oscar\documents\visual studio 2013\Projects\SendHttpReqs\SendHttpReqs\obj\Debug\SendHttpReqs.csprojResolveAssemblyReference.cache
+c:\users\oscar\documents\visual studio 2013\Projects\SendHttpReqs\SendHttpReqs\obj\Debug\SendHttpReqs.Form1.resources
+c:\users\oscar\documents\visual studio 2013\Projects\SendHttpReqs\SendHttpReqs\obj\Debug\SendHttpReqs.Properties.Resources.resources
+c:\users\oscar\documents\visual studio 2013\Projects\SendHttpReqs\SendHttpReqs\obj\Debug\SendHttpReqs.csproj.GenerateResource.Cache
+c:\users\oscar\documents\visual studio 2013\Projects\SendHttpReqs\SendHttpReqs\obj\Debug\SendHttpReqs.exe
+c:\users\oscar\documents\visual studio 2013\Projects\SendHttpReqs\SendHttpReqs\obj\Debug\SendHttpReqs.pdb
